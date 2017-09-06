@@ -7,17 +7,17 @@
  * Class description: Create a Vehicle class to use as a superclass for 
  * all other vehicle subclasses
  */
-public class Vehicle {
+public abstract class Vehicle {
 
 	// PRIVATE PROPERTIES +++++++++++++++++++++++++++++++++++++++++++
-	private int numWheels = 4;
-	private int numDoors = 2;
-	private String color = "";
-	private String make = "";
-	private String model = "";
-	private String year = "";
-	private float speed = 0;
-	private final int MAX_SPEED = 40;
+	protected int numWheels = 4;
+	protected int numDoors = 2;
+	protected String color = "";
+	protected String make = "";
+	protected String model = "";
+	protected String year = "";
+	protected float speed = 0;
+	protected final int MAX_SPEED = 40;
 	
 	// GET ACCESS METHODS
 	/**
@@ -73,25 +73,30 @@ public class Vehicle {
 		return this.speed;
 	}
 	
-	// CONSTRUCTOR
-	public Vehicle(){
-		
+	// CONSTRUCTOR *************************************************+++
+	public Vehicle(int wheels, int doors, String color, String make, String model, String year){
+		this.numWheels = wheels;
+		this.numDoors = doors;
+		this.color = color;
+		this.make = make;
+		this.model = model;
+		this.year = year;
 	}
 	
-	// PUBLIC METHODS
-	public void accelerate(){
-		this.speed += 4;
-		if(this.speed >= MAX_SPEED){
-			this.speed = MAX_SPEED;
-		}
+	public Vehicle(String color, String make, String model, String year){
+		this.color = color;
+		this.make = make;
+		this.model = model;
+		this.year = year;
 	}
 	
-	public void decelerate(){
-		this.speed -= 6;
-		if(this.speed < 0)
-			this.speed = 0;
-	}
+	// PUBLIC ABSTRACT METHODS ++++++++++++++++++++++++++++++++++++++++++++
+	// MUST BE OVERWRITTEN
+	public abstract void accelerate();
 	
+	public abstract void decelerate();
+	
+	// PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++
 	public void turnLeft(){
 		System.out.println("Turning Left");
 	}
