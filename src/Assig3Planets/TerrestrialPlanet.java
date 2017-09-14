@@ -2,15 +2,22 @@ package Assig3Planets;
 
 public class TerrestrialPlanet extends Planet implements IHabitable, IHasMoons {
 
-	public TerrestrialPlanet(String name, double diameter, double mass) {
-		super(name, diameter, mass);
-		// TODO Auto-generated constructor stub
-	}
+	// PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++
+	private Boolean _oxygen;
+	
 
-	public TerrestrialPlanet(String name, double diameter, double mass, int moonCount, double orbitPeriod,
-			int ringCount, double rotationPeriod, String type) {
-		super(name, diameter, mass, moonCount, orbitPeriod, ringCount, rotationPeriod, type);
-		// TODO Auto-generated constructor stub
+	public TerrestrialPlanet(String name, double diameter, double mass, boolean oxygen) {
+		super(name, diameter, mass, oxygen);
+		this._oxygen = oxygen;
 	}
+	
+	// PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++
+		public Boolean HasMoons(){
+			return (this.getMoonCount() > 0) ? true : false;
+		}
+		
+		public Boolean Habitable(){
+			return (this._oxygen == true) ? true : false;
+		}
 
 }

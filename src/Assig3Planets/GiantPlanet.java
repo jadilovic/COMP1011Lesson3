@@ -9,14 +9,23 @@ package Assig3Planets;
  */
 public class GiantPlanet extends Planet implements IHasMoons, IHasRings {
 
-	/**
-	 * @param name
-	 * @param diameter
-	 * @param mass
-	 */
-	public GiantPlanet(String name, double diameter, double mass) {
-		super(name, diameter, mass);
-		// TODO Auto-generated constructor stub
+	// PRIVATE INSTANCE VARIABLE ++++++++++++++++++++++++++++++++
+	private String _type;
+	
+	// CONSTRUCTOR ++++++++++++++++++++++++++++++++++++++++++++++++++++++
+	public GiantPlanet(String name, double diameter, double mass, String type) {
+		super(name, diameter, mass, type);
+		this._type = type;
 	}
+	
+	// PUBLIC METHODS ++++++++++++++++++++++++++++++++++++++++++++++++++++
+	public Boolean HasMoons(){
+		return (this.getMoonCount() > 0) ? true : false;
+	}
+	
+	public Boolean HasRings(){
+		return (this.getRingCount() > 0) ? true : false;
+	}
+	
 
 }
