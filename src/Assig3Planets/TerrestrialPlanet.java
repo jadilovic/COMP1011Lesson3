@@ -5,6 +5,11 @@ public class TerrestrialPlanet extends Planet implements IHabitable, IHasMoons {
 	// PRIVATE INSTANCE VARIABLES ++++++++++++++++++++++++++++++++++++++++++++++
 	private Boolean _oxygen;
 	
+	// PUBLIC PROPERTIES ++++++++++++++++++++++++++++++++++++++++++++
+		public Boolean hasOxygen() {
+			return this._oxygen;
+		}
+	
 
 	public TerrestrialPlanet(String name, double diameter, double mass, boolean oxygen) {
 		super(name, diameter, mass, oxygen);
